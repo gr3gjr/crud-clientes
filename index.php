@@ -9,38 +9,46 @@ $result = $conn->query("SELECT * FROM clientes ORDER BY id DESC");
 <head>
   <meta charset="UTF-8">
   <title>Lista de Clientes</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- Bootstrap 5.3 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
-  <h1>Lista de Clientes</h1>
+<body class="bg-light">
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="mb-0">Lista de Clientes</h2>
+      <a href="create.php" class="btn btn-success">+ Novo Cliente</a>
+    </div>
 
-  <p><a href="create.php">+ Cadastrar novo cliente</a></p>
-
-  <table border="1" cellpadding="8" cellspacing="0">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Telefone</th>
-        <th>Endereço</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php while($row = $result->fetch_assoc()): ?>
-        <tr>
-          <td><?= $row['id'] ?></td>
-          <td><?= htmlspecialchars($row['nome']) ?></td>
-          <td><?= htmlspecialchars($row['telefone']) ?></td>
-          <td><?= htmlspecialchars($row['endereco']) ?></td>
-          <td>
-            <a href="edit.php?id=<?= $row['id'] ?>">Editar</a> |
-            <a href="delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir este cliente?')">Excluir</a>
-          </td>
-        </tr>
-      <?php endwhile; ?>
-    </tbody>
-  </table>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped align-middle">
+        <thead class="table-dark text-center">
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php while($row = $result->fetch_assoc()): ?>
+            <tr>
+              <td class="text-center"><?= $row['id'] ?></td>
+              <td><?= htmlspecialchars($row['nome']) ?></td>
+              <td><?= htmlspecialchars($row['telefone']) ?></td>
+              <td><?= htmlspecialchars($row['endereco']) ?></td>
+              <td class="text-center">
+                <a href="edit.php?id=<?= $row['id'] ?>" class="btn btn-primary btn-sm">Editar</a>
+                <a href="delete.php?id=<?= $row['id'] ?>" class="btn btn-danger btn-sm"
+                   onclick="return confirm('Tem certeza que deseja excluir este cliente?')">Excluir</a>
+              </td>
+            </tr>
+          <?php endwhile; ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </body>
 </html>
 

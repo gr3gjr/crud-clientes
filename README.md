@@ -11,6 +11,7 @@ O objetivo é permitir o cadastro, listagem, edição e exclusão de clientes, u
 - HTML
 - CSS (modo escuro e visual mais limpo)
 - JavaScript (somente para confirmações)
+- Boostrap (desing e responsividade)
 
 ## 📋 Funcionalidades
 
@@ -62,8 +63,11 @@ CREATE TABLE clientes (
 
 - Projeto desenvolvido do zero com foco em simplicidade e organização.
 - O layout foi feito com um estilo mais limpo e escuro para melhor leitura e aparência moderna.
+- Para melhorar a aparência e a responsividade da interface, optei por utilizar o framework **Bootstrap**.
 - Toda a lógica de conexão, inserção, edição e exclusão está implementada com `mysqli` e prepared statements.
-- Utilizei o XAMPP para simular um ambiente de servidor local com suporte a PHP e MySQL.
+- Utilizei o **XAMPP** para simular um ambiente de servidor local com suporte a PHP e MySQL.
+- Caso deseje visualizar o código em uma versão mais “crua” e sem a integração com o Bootstrap, basta acessar um commit anterior neste repositório via Git.
+
 
 ---
 
